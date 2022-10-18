@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div class="box formulario">
         <div class="columns">
             <div class="column is-8" role="form" aria-label="Formulário para criação de uma nova tarefa">
                 <input type="text" class="input" placeholder="Qual tarefa deseja iniciar?" v-model="descricao">
@@ -19,6 +19,7 @@ import FormTemporizador from './FormTemporizador.vue'
 
 export default defineComponent({
     name: "FormFormulario",
+    emits:['aoSalvarTarefa'],
     components: {
         FormTemporizador
     },
@@ -29,10 +30,19 @@ export default defineComponent({
     },
     methods: {
         finalizarTarefa(tempoDecorrido){
-            console.log("tempo decorrido: ", tempoDecorrido),
-            console.log("Descricao: ", this.descricao),
+            this.$emit('aoSalvarTarefa', {
+                duracaoEmSegundos: tempoDecorrido,
+                descricao: this.descricao
+            })
             this.descricao = ''
         }
     }
 });
 </script>
+
+<style>
+.formulario{
+    color: var(--texto-primario);
+    background-color: var(--bg-primario);
+}
+</style>
