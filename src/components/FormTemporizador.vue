@@ -1,24 +1,38 @@
 <template>
-    <section class="is-flex is-align-items-center is-justify-content-space-between">
+    <div class="is-flex is-align-items-center is-justify-content-space-between">
         <FormCronometro :tempoEmSegundos="tempoEmSegundos"  />
-        <BtnBotao @clicado="iniciar" icone="fas fa-play" texto="play" :desabilitado="cronometroRodando" />
-        <BtnBotao @clicado="finalizar" icone="fas fa-stop" texto="stop" :desabilitado="!cronometroRodando" />
+        <!-- <BtnBotao @clicado="iniciar" icone="fas fa-play" texto="play" :desabilitado="cronometroRodando" />
+        <BtnBotao @clicado="finalizar" icone="fas fa-stop" texto="stop" :desabilitado="!cronometroRodando" /> -->
+
+        <button type="button" @click="iniciar" :disabled="cronometroRodando">
+        <span class="icon">
+            <i class="fa fa-play"></i>
+        </span>
+        <span>play</span>
+    </button>
+
+    <button type="button" @click="finalizar" :disabled="!cronometroRodando">
+        <span class="icon">
+            <i class="fa fa-stop"></i>
+        </span>
+        <span>stop</span>
+    </button>
        
-    </section>
+    </div>
 </template>
 
 <script>
 
 import { defineComponent } from 'vue';
 import FormCronometro from './FormCronometro.vue'
-import BtnBotao from './BtnBotao.vue'
+// import BtnBotao from './BtnBotao.vue'
 
 
 export default defineComponent({
     name: "FormTemporizador",
     components:{
         FormCronometro,
-        BtnBotao
+        // BtnBotao
     },
     data () {
         return {
@@ -49,7 +63,3 @@ export default defineComponent({
 )
 
 </script>
-
-<style scoped>
-
-</style>
