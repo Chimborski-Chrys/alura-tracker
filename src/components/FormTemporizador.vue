@@ -1,5 +1,5 @@
 <template>
-    <div class="is-flex is-align-items-center is-justify-content-space-between">
+    <section class="is-flex is-align-items-center is-justify-content-space-between">
         <FormCronometro :tempoEmSegundos="tempoEmSegundos"  />
         <!-- <BtnBotao @clicado="iniciar" icone="fas fa-play" texto="play" :desabilitado="cronometroRodando" />
         <BtnBotao @clicado="finalizar" icone="fas fa-stop" texto="stop" :desabilitado="!cronometroRodando" /> -->
@@ -16,9 +16,8 @@
             <i class="fa fa-stop"></i>
         </span>
         <span>stop</span>
-    </button>
-       
-    </div>
+    </button>       
+    </section>
 </template>
 
 <script>

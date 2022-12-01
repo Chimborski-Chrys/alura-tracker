@@ -48,7 +48,7 @@ main {
 
 main.modo-escuro{
   --bg-primario: #000;
-  --texto-primario: #ddd;
+  --texto-primario: #fff;
 }
 
 .conteudo{
