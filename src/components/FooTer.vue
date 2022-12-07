@@ -8,7 +8,7 @@
       <div id="contacts--social">
         <div>
           <a href="https://twitter.com/chrystiomar">
-            <i class="fa-brands fa-square-twitter fa-2x fa-bounce"> </i>
+            <i class="icon fa-brands fa-square-twitter fa-2x"> </i>
           </a>
         </div>
 
@@ -16,13 +16,13 @@
           <a
             href="https://www.linkedin.com/in/chrystiomar-chimborski-3809a5176/"
           >
-            <i class="fa-brands fa-linkedin fa-2x fa-bounce"></i>
+            <i class="icon fa-brands fa-linkedin fa-2x"></i>
           </a>
         </div>
 
         <div>
           <a href="https://github.com/Chimborski-Chrys">
-            <i class="fa-brands fa-github fa-2x fa-bounce"></i>
+            <i class="icon fa-brands fa-github fa-2x"></i>
           </a>
         </div>
       </div>
@@ -59,6 +59,7 @@ body {
 #container {
   padding-top: 20px;
   margin-top: 20px;
+  padding-bottom: 20px;
   width: 100vw;
   color: white;
   /* background-color: #0d3b66; */
@@ -83,11 +84,15 @@ body {
 #contacts--social div {
   height: 30px;
   width: 30px;
-
   border-radius: 50%;
 }
 #mentions p {
   font-size: 0.5em;
-  color: #0d3b66;
+  color: #ffff;
+  padding-top: 15px;
+}
+
+.icon {
+  color: #ffff;
 }
 </style>

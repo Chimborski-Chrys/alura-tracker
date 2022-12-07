@@ -1,6 +1,6 @@
 <template>
   <main
-    class="columns is-gapless is multiline"
+    class="tela columns is-gapless is multiline"
     :class="{ 'modo-escuro': modoEscuroAtivo }"
   >
     <div class="column is-one-quarter">
@@ -11,7 +11,7 @@
       <router-view></router-view>
     </div>
   </main>
-  <FooTer></FooTer>
+  <FooTer class="footer"></FooTer>
 </template>
 
 <script>
@@ -60,4 +60,10 @@ main.modo-escuro {
 .conteudo {
   background-color: var(--bg-primario);
 }
+
+.footer {
+  background: #0d3b66;
+  text-align: center;
+}
+
 </style>

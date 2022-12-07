@@ -1,7 +1,9 @@
 
 // import IProjeto from "@/myInterface/IProjeto";
 import { createStore, useStore as vuexUseStore } from "vuex";
-import {ADICIONA_PROJETO, ALTERA_PROJETO, EXCLUIR_PROJETO, ADICIONA_TAREFA, ATUALIZA_TAREFA, REMOVE_TAREFA, NOTIFICAR} from "./tipo-Mutacoes";
+import { ALTERAR_PROJETOS, CADASTRAR_PROJETOS, OBTER_PROJETOS, REMOVER_PROJETOS } from "./tipo-acoes";
+import {ADICIONA_PROJETO, ALTERA_PROJETO, EXCLUIR_PROJETO, ADICIONA_TAREFA, ATUALIZA_TAREFA, REMOVE_TAREFA, NOTIFICAR, DEFINIR_PROJETOS} from "./tipo-Mutacoes";
+import http from "@/http";
 // import { ATENCAO, FALHA, SUCESSO } from "./TipoNotificacao";
 // import { createStore } from "vuex";
 // import{useStore as vuexStore} from "vuex";
@@ -35,6 +37,9 @@ export const key = Symbol();
         },
         [EXCLUIR_PROJETO] (state, id){
             state.projetos = state.projetos.filter(proj => proj.id != id);
+        }, 
+        [DEFINIR_PROJETOS] (state, projetos){
+           state.projetos = projetos
         },
         [ADICIONA_TAREFA] (state, tarefa) {
             tarefa.id = new Date().toISOString()
@@ -55,6 +60,24 @@ export const key = Symbol();
                 state.notificacoes = state.notificacoes.filter(notificacao => notificacao.id != novaNotificacao.id)
             },3000)
           }
+    },
+    actions: {
+        [OBTER_PROJETOS]({ commit }){
+            http.get('projetos')
+                .then(response => commit(DEFINIR_PROJETOS, response.data))
+        },
+        [CADASTRAR_PROJETOS](contexto, nomeDoProjeto){
+           return http.post('/projetos', {
+                nome: nomeDoProjeto
+            })
+        },
+        [ALTERAR_PROJETOS](contexto, projeto){
+            return http.put(`/projetos/${projeto.id}`, projeto) 
+         },
+         [REMOVER_PROJETOS]({commit}, id){
+            return http.delete(`/projetos/${id}`)
+            .then( () => commit(EXCLUIR_PROJETO, id))
+         }
     }
 })
 

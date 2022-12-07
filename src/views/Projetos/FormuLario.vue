@@ -20,23 +20,25 @@
 <script>
 import { defineComponent } from "vue";
 import { useStore } from "@/store";
-import {ADICIONA_PROJETO, ALTERA_PROJETO} from "@/store/tipo-Mutacoes";
-import {SUCESSO} from '../../store/TipoNotificacao';
+import { SUCESSO } from "../../store/TipoNotificacao";
 import { notificacaoMixin } from "@/mixins/notificar";
+import { CADASTRAR_PROJETOS, ALTERAR_PROJETOS } from "@/store/tipo-acoes";
 // import useNotificador from '@/hooks/notificador.js'
 
 export default defineComponent({
   name: "FormuLario",
-  props:{
-    id:{
+  props: {
+    id: {
       type: String,
-    }
+    },
   },
   mixins: [notificacaoMixin],
-  mounted(){
-    if(this.id){
-      const projeto = this.store.state.projetos.find(proj => proj.id == this.id)
-      this.nomeDoProjeto = projeto.nome || ''
+  mounted() {
+    if (this.id) {
+      const projeto = this.store.state.projetos.find(
+        (proj) => proj.id == this.id
+      );
+      this.nomeDoProjeto = projeto.nome || "";
     }
   },
   data() {
@@ -46,32 +48,35 @@ export default defineComponent({
   },
   methods: {
     salvar() {
-      if(this.id){
-        this.store.commit(ALTERA_PROJETO, {
-          id: this.id,
-          nome: this.nomeDoProjeto
-        })
-      }else{
-        this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto);
-      }     
-      this.nomeDoProjeto = "";
-      this.notificar(SUCESSO, 'Excelente!', 'Projeto incluido com sucesso!')
-      this.$router.push('/projetos')
+      if (this.id) {
+        this.store
+          .dispatch(ALTERAR_PROJETOS, {
+            id: this.id,
+            nome: this.nomeDoProjeto,
+          })
+          .then(() => this.caseSucesso());
+      } else {
+        this.store
+          .dispatch(CADASTRAR_PROJETOS, this.nomeDoProjeto)
+          .then(() => this.caseSucesso());
+      }
     },
-    
+
+    caseSucesso() {
+      this.nomeDoProjeto = "";
+      this.notificar(SUCESSO, "Excelente!", "Projeto incluido com sucesso!");
+      this.$router.push("/projetos");
+    },
   },
-  setup () {
-    const store = useStore()
+  setup() {
+    const store = useStore();
     // const { notificar } = useNotificador()
-    return { 
+    return {
       store,
       // notificar
-    }
-  }
+    };
+  },
 });
 </script>
 
-<style scoped>
-
-</style>
-
+<style scoped></style>

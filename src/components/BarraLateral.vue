@@ -1,7 +1,7 @@
 <template>
   <header>
     <h1>
-      <img src="../assets/logo.png" alt="logo" />
+      <img src="../assets/logo2.png" alt="logo" class="logo" />
     </h1>
     <button class="button" @click="alteraTema">{{ textoBotao }}</button>
     <nav class="panel mt-5">
@@ -76,5 +76,9 @@ header {
 }
 .link.router-link-active {
   color: #faf0ca;
+}
+
+.logo {
+  padding: 15px;
 }
 </style>
