@@ -1,7 +1,7 @@
 import IProjeto from "./IProjeto";
 
 export default interface IFormTarefa{
-    id: string;
+    id: number;
     duracaoEmSegundos: number,
     descricao: string,
     projeto: IProjeto

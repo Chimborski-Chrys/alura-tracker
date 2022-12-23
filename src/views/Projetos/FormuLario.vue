@@ -23,7 +23,7 @@ import { useStore } from "@/store";
 import { SUCESSO } from "../../store/TipoNotificacao";
 import { notificacaoMixin } from "@/mixins/notificar";
 import { CADASTRAR_PROJETOS, ALTERAR_PROJETOS } from "@/store/tipo-acoes";
-// import useNotificador from '@/hooks/notificador.js'
+// import useNotificador from "@/hooks/notificador.js";
 
 export default defineComponent({
   name: "FormuLario",
@@ -70,10 +70,20 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
-    // const { notificar } = useNotificador()
+    // const { notificar } = useNotificador();
+
+    // const nomeDoProjeto = ref("");
+
+    // if (props.id) {
+    //   const projeto = store.state.projeto.projetos.find(
+    //     (proj) => proj.id == props.id
+    //   );
+    //   nomeDoProjeto.value = projeto?.nome || "";
+    // }
     return {
       store,
-      // notificar
+      // notificar,
+      // nomeDoProjeto,
     };
   },
 });

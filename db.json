@@ -2,11 +2,53 @@
   "projetos": [
     {
       "id": 1,
-      "nome": "Work Tracker 2.0"
+      "nome": "Work Tracker 2.5"
     },
     {
-      "nome": "curso TS avançado",
+      "id": 2,
+      "nome": "curso TS avançado 2.0"
+    },
+    {
+      "nome": "Plano de estudos de vue",
+      "id": 3
+    }
+  ],
+  "tarefas": [
+    {
+      "id": 1,
+      "duracaoEmSegundos": 120,
+      "descricao": "Configuração do ambiente vue 2.0",
+      "projeto": {
+        "id": 1,
+        "nome": "Work Tracker 2.0"
+      }
+    },
+    {
+      "duracaoEmSegundos": 5,
+      "descricao": "refatorando codigo 1",
+      "projeto": {
+        "id": 1,
+        "nome": "Work Tracker 2.0"
+      },
       "id": 2
+    },
+    {
+      "duracaoEmSegundos": 32,
+      "descricao": "teste unitario",
+      "projeto": {
+        "id": 1,
+        "nome": "Work Tracker 2.0"
+      },
+      "id": 3
+    },
+    {
+      "duracaoEmSegundos": 4,
+      "descricao": "aula 01",
+      "projeto": {
+        "nome": "Plano de estudos de vue",
+        "id": 3
+      },
+      "id": 4
     }
   ]
 }
