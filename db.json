@@ -2,7 +2,7 @@
   "projetos": [
     {
       "id": 1,
-      "nome": "Work Tracker 2.5"
+      "nome": "Work Tracker 3.0"
     },
     {
       "id": 2,
@@ -17,7 +17,7 @@
     {
       "id": 1,
       "duracaoEmSegundos": 120,
-      "descricao": "Configuração do ambiente vue 2.0",
+      "descricao": "Configuração do ambiente vue 2.1",
       "projeto": {
         "id": 1,
         "nome": "Work Tracker 2.0"
